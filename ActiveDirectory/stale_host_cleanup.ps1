@@ -12,3 +12,9 @@ Author: Nick Howson <nick.howson@gmail.com>
 #Setup
 # More information on date and time fuctions see - http://technet.microsoft.com/en-us/library/ff730960.aspx
 $dateCurrent = Get-Date
+
+<# quick string date to DateTime converter
+$string = "19/03/2010 14:11"
+$dateformat = "%d/MM/yyyy %H:mm"
+[datetime]::ParseExact($string,$dateformat,$null)
+#>
