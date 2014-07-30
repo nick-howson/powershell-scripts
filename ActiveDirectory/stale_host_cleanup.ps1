@@ -9,6 +9,12 @@
 Author: Nick Howson <nick.howson@gmail.com>
 #>
 
+Function Pause
+{
+Write-Host "Press any key to continue ..."
+$x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+}
+
 #Setup
 # Import the AD module
 Import-Module ActiveDirectory
@@ -18,6 +24,7 @@ $dateCurrent = Get-Date
 $date6 = $dateCurrent.AddMonths(-6)
 $date12 = $dateCurrent.AddMonths(-12)
 $date18 = $dateCurrent.AddMonths(-18)
+
 
 ################################
 # Generate CSV reports section #
@@ -35,5 +42,5 @@ Get-ADComputer -Filter {LastLogonTimeStamp -lt $date18} -Properties LastLogonTim
 # Output hostname and lastLogonTimestamp into CSV
 select-object Name,@{Name="Stamp"; Expression={[DateTime]::FromFileTime($_.lastLogonTimestamp)}} | export-csv $output_file_name"-18months.csv" -notypeinformation
 # press any key to continue prompt mimicks the old pause from batch files
-Write-Host "Press any key to continue ..."
-$x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+
+Pause
