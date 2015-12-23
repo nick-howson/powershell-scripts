@@ -51,7 +51,7 @@ Else
 			WriteFileText "D:\HandbrakeTemp\bwoop.bat", strMKVExtractCommand 
 			
 			' build commandline for handbrake
-			strHanbrakeCommand = """" & strHandbrakePath & """ -i """ & strSourcePath & "\" & objFile.Name & """ -o ""D:\HandbrakeTemp\temp.mkv"" -f mkv --deinterlace=""slower"" --denoise=""weak"" --strict-anamorphic  -e x264 -q 18 --vfr  -a 1 -E copy  -x ref=6:weightp=1:subq=10:rc-lookahead=10:trellis=2:bframes=5:b-adapt=2:direct=auto:me=tesa:no-dct-decimate=1:b-pyramid=strict --verbose=1 >> D:\HandbrakeTemp\log.txt"
+			strHanbrakeCommand = """" & strHandbrakePath & """ -i """ & strSourcePath & "\" & objFile.Name & """ -o ""D:\HandbrakeTemp\temp.mkv"" -f mkv --deinterlace=""slower"" --denoise=""weak"" --strict-anamorphic  -e x264 -q 18 --vfr  -a 1 -E copy  -x ref=6:weightp=1:subq=10:rc-lookahead=10:trellis=2:bframes=5:b-adapt=2:direct=auto:me=tesa:no-dct-decimate=1:b-pyramid=strict --verbose=1 2>> D:\HandbrakeTemp\log.txt"
 			WriteFileText "D:\HandbrakeTemp\bwoop.bat", strHanbrakeCommand
 			
 			' build commandline for mkvmerge
